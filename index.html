@@ -1,158 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Sally Anne's Farm</title>
+        <title>Sally Anne's Farm | Official</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            /* Fixed Horizontal Faded Green Watermark */
+            :root {
+                --farm-green: #2d5a27;
+                --farm-accent: #8bc34a;
+                --text-main: #2e3d2e;
+            }
+
             body {
                 margin: 0;
-                font-family: 'Segoe UI', Tahoma, sans-serif;
-                background-color: #f0f4f0;
-                color: #333;
-                overflow-x: hidden;
+                font-family: 'Segoe UI', Arial, sans-serif;
+                background-color: #f8faf8;
+                /* Doable Grid Background */
+                background-image: 
+                    radial-gradient(rgba(45, 90, 39, 0.08) 1.5px, transparent 1.5px);
+                background-size: 30px 30px;
+                color: var(--text-main);
+                line-height: 1.6;
             }
 
-            .bg-watermark {
+            /* Fixed Background Watermark */
+            .watermark {
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-10deg);
+                font-size: 10vw;
+                font-weight: 900;
+                color: rgba(45, 90, 39, 0.04);
+                white-space: nowrap;
                 z-index: -1;
                 pointer-events: none;
+                text-transform: uppercase;
             }
 
-            .watermark-line {
-                font-size: 8vw;
-                font-weight: 900;
-                color: rgba(45, 90, 39, 0.07); /* Faded Green */
-                white-space: nowrap;
-                text-align: center;
-                letter-spacing: 12px;
+            header { 
+                background: var(--farm-green); 
+                color: white; 
+                padding: 1rem 0; 
+                position: sticky; 
+                top: 0; 
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
 
-            header { background: #2d5a27; color: white; padding: 15px 20px; position: sticky; top: 0; z-index: 1000; }
-            .introduction { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-            .nav ul { list-style: none; display: flex; gap: 20px; padding: 0; margin: 0; }
-            .nav a { color: white; text-decoration: none; font-weight: bold; }
+            .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+            .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+            .nav-links { list-style: none; display: flex; gap: 20px; padding: 0; }
+            .nav-links a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-            main { max-width: 1100px; margin: 20px auto; padding: 0 20px; }
+            main { padding: 40px 0; }
 
-            /* Semi-Transparent Cards to show watermark */
+            /* Glass Cards */
             .card {
-                background: rgba(255, 255, 255, 0.85); 
-                backdrop-filter: blur(5px);
-                padding: 30px;
-                border-radius: 15px;
-                margin-bottom: 30px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                padding: 40px;
+                border-radius: 20px;
+                margin-bottom: 40px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             }
 
-            h2 { color: #2d5a27; border-bottom: 2px solid #8bc34a; padding-bottom: 8px; margin-top: 0; }
-            
-            img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 15px auto; }
-            
-            .services-grid h3 { color: #2d5a27; margin-top: 25px; }
-            .row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 15px 0; }
-            .row-3 img { height: 200px; width: 100%; object-fit: cover; margin: 0; }
+            h2 { color: var(--farm-green); border-left: 6px solid var(--farm-accent); padding-left: 15px; margin-top: 0; }
+            h3 { color: var(--farm-green); margin-top: 25px; border-bottom: 1px solid #ddd; display: inline-block; }
 
-            .contact-section { background: #2d5a27; color: white; text-align: center; padding: 40px 20px; border-radius: 15px 15px 0 0; }
-            .contact-section a { color: #8bc34a; text-decoration: none; }
-
-            @media (max-width: 768px) {
-                .introduction { flex-direction: column; gap: 10px; }
-                .row-3 { grid-template-columns: 1fr; }
+            /* FIX: Full Image display (No Half Images) */
+            .full-img {
+                width: 100%;
+                height: auto; /* Ensures vertical images aren't cut */
+                border-radius: 12px;
+                margin: 20px 0;
+                display: block;
+                object-fit: contain; /* Shows entire image */
             }
+
+            .grid-3 {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .grid-item img {
+                width: 100%;
+                height: 250px;
+                object-fit: contain; /* Fix for livestock images */
+                background: #fff;
+                border-radius: 10px;
+                border: 1px solid #eee;
+            }
+
+            .feature-list { list-style: none; padding: 0; }
+            .feature-list li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+            .feature-list li::before { content: '✔'; position: absolute; left: 0; color: var(--farm-accent); font-weight: bold; }
+
+            .footer-contact {
+                background: var(--farm-green);
+                color: white;
+                text-align: center;
+                padding: 60px 20px;
+                border-radius: 40px 40px 0 0;
+            }
+
+            .footer-contact a { color: var(--farm-accent); text-decoration: none; font-weight: bold; }
         </style>
     </head>
-
     <body>
-        <div class="bg-watermark">
-            <div class="watermark-line">ZALLY ANNE'Z FARMS</div>
-            <div class="watermark-line">ZALLY ANNE'Z FARMS</div>
-            <div class="watermark-line">ZALLY ANNE'Z FARMS</div>
-        </div>
+
+        <div class="watermark">ZALLY ANNE'Z FARMS</div>
 
         <header>
-            <div class="introduction">
-                <div class="title">
-                    <h1 style="margin:0;">Sally Anne's Farm</h1>
-                </div>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="#index">Home</a></li>
+            <div class="container nav-flex">
+                <h1 style="margin:0; font-size: 1.5rem;">Sally Anne's Farm</h1>
+                <nav>
+                    <ul class="nav-links">
                         <li><a href="#about">About</a></li>
-                        <li><a href="#service">Services</a></li>
-                        <li><a href="#product">Products</a></li>
+                        <li><a href="#livestock">Livestock</a></li>
                         <li><a href="#marketplace">Marketplace</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-            </div> 
+            </div>
         </header>
 
-        <main>
-            <section id="index" class="card">
+        <main class="container">
+            
+            <section class="card">
                 <h2>Welcome to the Farm</h2>
-                <img src="goat-.jpg" style="width: 100%; max-height: 450px; object-fit: cover;" alt="Sally Anne Farm Goat">
-                <p>Sally Anne's Farm is a progressive and diversified agricultural enterprise located in Pap-Onditi, Nyakach, in Kisumu County, Kenya.
-                <br><br>The farm is dedicated to producing healthy, high-quality, and value-added farm products that improve nutrition and support sustainable livelihoods.</p>
+                <img src="goat-.jpg" class="full-img" alt="Sally Anne Goat">
+                <p>Located in Pap-Onditi, Nyakach, Sally Anne's Farm is a progressive enterprise dedicated to organic excellence and sustainable rural development.</p>
             </section>
 
-            <section id="about" class="card">
-                <h2>About Us</h2>
-                <p>At Sally Anne’s Farm, we are passionate about organic farming and sustainable food production. Based in Paponditi, Nyakach, Kisumu County, our farm operates in a rural environment that allows us to grow and rear our products naturally and responsibly.
-                <br><br>Our farm includes dairy goats, poultry, and rabbit farming—utilizing rabbit urine as a natural fertilizer for our 100% organic crops. We also manage aquaculture ponds and grow fresh leafy vegetables.</p>
-                <img src="green.jpg" alt="Farm Landscape">
-            </section>
-
-            <section id="service" class="card">
-                <h2>Our Specialized Services</h2>
-                <div class="services-grid">
-                    <h3>🐐 Our Livestock</h3>
-                    <div class="row-3">
-                        <img src="goat-3.jpg" alt="Dairy Goat">
-                        <img src="hen.jpg" alt="Poultry">
-                        <img src="rabbit.jpg" alt="Rabbit Farming">
+            <section id="livestock" class="card">
+                <h2>Our Livestock</h2>
+                <div class="grid-3">
+                    <div class="grid-item">
+                        <img src="goat-3.jpg" alt="Dairy Goats">
+                        <p><strong>Dairy Goats:</strong> Producing fresh milk, creamy yoghurt, and natural goat milk soap.</p>
                     </div>
-
-                    <h3>🐟 Aquaculture</h3>
-                    <img src="aquaculture.webp" style="width:100%; max-height:400px; object-fit:cover;" alt="Aquaculture">
-                    <p>Sustainable fish farming to provide high-quality protein to the community.
-                    <br><b>Species:</b> Tilapia, Catfish, and Sun-dried fish.</p>
+                    <div class="grid-item">
+                        <img src="hen.jpg" alt="Poultry">
+                        <p><strong>Poultry Farming:</strong> Healthy, farm-raised chickens for the community.</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="rabbit.jpg" alt="Rabbits">
+                        <p><strong>Rabbit Farming:</strong> Utilizing rabbit urine as high-quality natural fertilizer.</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="product" class="card">
+            <section class="card">
+                <h2>Aquaculture</h2>
+                <img src="aquaculture.webp" class="full-img" alt="Fish Pond">
+                <ul class="feature-list">
+                    <li><strong>Fish pond farming:</strong> Sustainable rearing of Tilapia and Catfish.</li>
+                    <li><strong>Sun-dried fish:</strong> Processed for wider access and longer shelf life.</li>
+                    <li><strong>Nutrition awareness:</strong> Empowering the community through healthy protein sources.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Fresh & Dried Vegetables</h2>
+                <img src="leafy.jpg" class="full-img" alt="Vegetables">
+                <p>Nutritious, affordable, and sustainable produce grown with organic care.</p>
+                <ul class="feature-list">
+                    <li><strong>Green leafy vegetables:</strong> Farm-fresh daily produce.</li>
+                    <li><strong>Sun-dried vegetables:</strong> Available for customers with limited access to fresh greens.</li>
+                </ul>
+            </section>
+
+            <section class="card">
                 <h2>Value Addition</h2>
-                <p>We create high-quality products to enhance your lifestyle and health.</p>
-                <img src="package.jpg" style="max-width:500px;" alt="Goat Milk Yoghurt">
-                <p style="text-align:center;"><strong>Goat Milk Yoghurt:</strong> Creamy and nutritious.</p>
+                <div class="grid-3">
+                    <img src="package.jpg" style="object-fit: contain; height: auto;" alt="Yoghurt">
+                    <div>
+                        <ul class="feature-list">
+                            <li><strong>Goat milk yoghurt:</strong> Creamy and nutritious.</li>
+                            <li><strong>Goat milk soap:</strong> Natural skincare solution.</li>
+                            <li><strong>Sun-dried fish:</strong> Preserved for convenience and nutrition.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card" style="background: rgba(139, 195, 74, 0.1);">
+                <h2>Our Commitment</h2>
+                <ul class="feature-list">
+                    <li>Organic and eco-friendly farming practices.</li>
+                    <li>Sustainable rural development in Nyakach.</li>
+                    <li>Community empowerment through agriculture.</li>
+                </ul>
             </section>
 
             <section id="marketplace" class="card">
                 <h2>Marketplace</h2>
-                <img src="image_3a8b00.jpg" style="width:100%;" alt="Marketplace Image">
+                <img src="image_448e6d.jpg" class="full-img" alt="Sally Anne Marketplace">
             </section>
+
         </main>
 
-        <section id="contact" class="contact-section">
-            <h4>Visit Us</h4>
-            <p>Pap-Onditi, Nyakach, Kisumu County</p>
+        <section class="footer-contact">
+            <h3>Visit Us in Nyakach</h3>
+            <p>Pap-Onditi, Kisumu County, Kenya</p>
             <p>Email: <a href="mailto:awachsalyne6@gmail.com">awachsalyne6@gmail.com</a></p>
             <p>Phone: <a href="tel:+254791923108">+254 791 923 108</a></p>
+            <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Sally Anne's Farm | Refined by Austine Tech Co.</p>
         </section>
 
-        <footer>
-            <p style="text-align: center; padding: 15px; font-size: 0.8rem; color: #777;">
-                &copy; 2026 Sally Anne's Farm. All Rights Reserved.<br>
-                Refined by Austine Tech Co.
-            </p>
-        </footer>
     </body>
 </html>
