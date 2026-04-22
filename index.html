@@ -1,157 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Sally Anne's Farm</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css>
+    <title>Sally Anne's Farm | Organic & Sustainable</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; background: #f9f9f9; }
+        header { background: #2d5a27; color: white; padding: 2rem 1rem; text-align: center; }
+        nav { background: #3e7b37; padding: 0.5rem; text-align: center; sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        section { background: white; margin-bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #2d5a27; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fff; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .contact-info a { color: #98fb98; text-decoration: none; }
+    </style>
+</head>
+<body>
 
-    <body>
-        <header>
-            <div class="introduction">
-                <div class="title">
-                    <h1>Sally Anne's Farm</h1>
+<header>
+    <h1>Sally Anne's Farm</h1>
+    <p>Healthy, Organic, and Sustainable Produce from Nyakach, Kisumu</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#livestock">Livestock</a>
+    <a href="#produce">Produce</a>
+    <a href="#value-add">Products</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+    <section id="about">
+        <h2>Welcome to the Farm</h2>
+        <p>Located in Pap-Onditi, we are dedicated to 100% organic farming. We use rabbit urine as natural fertilizer and focus on community nutrition through sustainable agriculture.</p>
+        <img src="green.jpg" alt="Organic Farming" style="width:100%; border-radius:8px;">
+    </section>
+
+    <section id="livestock">
+        <h2>Our Specialized Livestock</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="goat-.jpg" alt="Dairy Goats">
+                <div class="card-content">
+                    <h3>Dairy Goats</h3>
+                    <p>We rear healthy goats for fresh milk, creamy yoghurt, and natural milk soaps.</p>
                 </div>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="#index">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#service">Services</a></li>
-                        <li><a href="#product">Products</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div> 
-        </header>
-
-        <main>
-            <section id="index" class="card-container">
-                <div class="card">
-                    <h2>Welcome to the Farm</h2>
-                    <div class="card-view">
-                        <img src="./images/goat-1.webp" alt="Sally Anne Farm Goat">
-                        <p>Sally Anne's Farm is a progressive and diversified agricultural enterprise located in Pap-Onditi, Nyakach, in Kisumu County, Kenya.
-                        <br><br>The farm is dedicated to producing healthy, high-quality, and value-added farm products that improve nutrition and support sustainable livelihoods.</p>
-                    </div>
+            </div>
+            <div class="card">
+                <img src="hen.jpg" alt="Poultry Farming">
+                <div class="card-content">
+                    <h3>Poultry</h3>
+                    <p>Farm-raised chickens and fresh organic eggs for the community.</p>
                 </div>
-            </section>
-
-            <section id="about" class="card-container">
-                <div class="card">
-                    <h2>About Us</h2>
-                    <div class="card-view reverse">
-                        <img src="./images/goat-2.webp" alt="Farm Landscape">
-                         <p>
-                            At Sally Anne’s Farm, we are passionate about organic farming and sustainable food production. Based in Paponditi, Nyakach, Kisumu County, our farm operates in a rural environment that allows us to grow and rear our products naturally and responsibly.
-                        <br><br>Our farm includes dairy goats, poultry, and rabbit farming—utilizing rabbit urine as a natural fertilizer for our 100% organic crops. We also manage aquaculture ponds and grow fresh leafy vegetables. 
-                        <br><br>
-                        Through our work, we aim to promote community nutrition awareness, support local food access, and provide high-quality organic products our customers can trust.
-                        </p>
-                    </div>
+            </div>
+            <div class="card">
+                <img src="rabbit.jpg" alt="Rabbit Farming">
+                <div class="card-content">
+                    <h3>Rabbits</h3>
+                    <p>Breeding for quality meat and high-potency organic liquid fertilizer.</p>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section id="service" class="card-container">
-                <h2>Our Specialized Services</h2>
-                
-                <div class="services-grid">
-                    <h3>🐐 Our Livestock</h3>
-                    <div class="service-item">
-                        <div class="service-text">
-                            <h4>Dairy Goat Farming</h4>
-                            <p>We rear healthy, well-managed goats for milk production.</p>
-                            <p><b>What we offer: </b></p>
-                            <ul>
-                                <li>Fresh milk</li>
-                                <li>Goat milk yoghurt</li>
-                                <li>Natural goat milk soap</li>  
-                            </ul>
-                        </div>
-                        <img src="./images/goat-4.webp" alt="Dairy Goat">
-                    </div>
-
-                    <div class="service-item">
-                        <div class="service-text">
-                            <h4>Poultry & Rabbit Farming</h4>
-                            <p>We provide farm-raised poultry and sustainable fertilizer solutions.</p>
-                            <p><b>What we offer: </b></p>
-                            <ul>
-                                <li>Healthy farm-raised chicken</li>
-                                <li>Fresh eggs</li>
-                                <li>Natural fertilizer (Rabbit urine)</li>
-                            </ul>
-                        </div>
-                        <img src="./images/egg.webp" alt="Poultry">
-                    </div>
-
-                    <h3>🐟 Aquaculture</h3>
-                    <div class="service-item">
-                        <div class="service-text">
-                            <h4>Fish Pond Farming</h4>
-                            <p>Sustainable fish farming to provide high-quality protein to the community.</p>
-                            <p><b>Species we rear: </b></p>
-                            <ul>
-                                <li>Tilapia</li>
-                                <li>Catfish</li>
-                                <li>Sun-dried fish (for longer shelf life)</li>
-                            </ul>
-                        </div>
-                        <img src="./images/fish.webp" alt="Aquaculture">
-                    </div>
-
-                    <h3>🥬 Fresh & Dried Produce</h3>
-                    <div class="service-item">
-                        <div class="service-text">
-                            <h4>Nutritious Greens</h4>
-                            <p>We cultivate greens with care to ensure maximum nutritional value.</p>
-                            <ul>
-                                <li><strong>Fresh Leafy Veggies:</strong> Farm-fresh produce.</li>
-                                <li><strong>Sun-Dried Veggies:</strong> Preserved for customers with limited access to fresh greens.</li>
-                            </ul>
-                        </div>
-                        <img src="./images/fresh-1.webp" alt="Fresh Greens">
-                    </div>
+    <section id="produce">
+        <h2>Fresh & Dried Vegetables</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="leafy.jpg" alt="Greenhouse Vegetables">
+                <div class="card-content">
+                    <h3>Organic Greens</h3>
+                    <p>Freshly harvested leafy vegetables grown with zero chemical pesticides.</p>
                 </div>
-            </section>
-
-            <section id="product" style="display: flex; flex-direction: column; align-items: center; gap: 20px; background: white; padding: 40px 20px;">
-                <h2>Our Farm Products & Value Addition</h2>
-                <div style="max-width: 800px; width: 100%; text-align: left;">
-                    <p>We don't just farm; we create high-quality products to enhance your lifestyle and health.</p>
-                    <div class="product-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div>
-                            <h4>✨ Value Added</h4>
-                            <ul>
-                                <li><strong>Goat Milk Yoghurt:</strong> Creamy and nutritious.</li>
-                                <li><strong>Goat Milk Soap:</strong> Natural skincare solution.</li>
-                                <li><strong>Sun-dried Fish:</strong> Preserved for wider access.</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>🌱 Sustainable Farming</h4>
-                            <ul>
-                                <li>Organic Leafy Vegetables</li>
-                                <li>Natural Rabbit Fertilizer</li>
-                                <li>Farm-raised Poultry & Fish</li>
-                            </ul>
-                        </div>
-                    </div>
+            </div>
+            <div class="card">
+                <img src="goat-3.jpg" alt="Sustainable Feeding">
+                <div class="card-content">
+                    <h3>Sustainable Practices</h3>
+                    <p>Feeding our livestock with farm-grown fodder to ensure the highest quality nutrients.</p>
                 </div>
-                <img src="market.png" alt="Farm Products" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;">
-            </section>
-        </main>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact" class="contact-section">
-            <h4>Visit Us</h4>
-            <p>Pap-Onditi, Nyakach, Kisumu County</p>
-            <p>Email: <a href="mailto:awachsalyne6@gmail.com">awachsalyne6@gmail.com</a></p>
-            <p>Phone: <a href="tel:+254791923108">+254 791 923 108</a></p>
-        </section>
+    <section id="value-add">
+        <h2>Value Added Products</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="package.jpg" alt="Goat Milk Yoghurt">
+                <div class="card-content">
+                    <h3>Goat Milk Yoghurt</h3>
+                    <p>Deliciously creamy, "Hand Made" with care. Available in plain and fruit flavors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2026 Sally Anne's Farm. All Rights Reserved.</p>
-            <p>Refined by Austine Tech Co.</p>
-        </footer>
-    </body>
+    <section id="contact">
+        <h2>Visit Us</h2>
+        <div class="contact-info">
+            <p><strong>Location:</strong> Pap-Onditi, Nyakach, Kisumu County, Kenya</p>
+            <p><strong>Email:</strong> <a href="mailto:awachsalyne6@gmail.com">awachsalyne6@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+254791923108">+254 791 923 108</a></p>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 Sally Anne's Farm. All Rights Reserved.</p>
+    <p><small>Refined by Austine Tech Co.</small></p>
+</div>
+
+</body>
 </html>
